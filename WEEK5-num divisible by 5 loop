@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int range;
+    printf("Insert range : ");
+    scanf("%d",&range);
+    int i=1;
+    printf("The numbers divisible by 5 are \n");
+    while(i<=range)
+    {
+        if(i%5==0)
+        {
+            printf("%d ",i);
+        }
+        i++;
+    }
+    return 0;
+}
