@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+int pow(int x, int y);
+int main()
+{
+    int base,power;
+    printf("Insert base : ");
+    scanf("%d",&base);
+    printf("Insert power : ");
+    scanf("%d",&power);
+    printf("%d with the power of %d is %d",base,power,pow(base,power));
+    return 0;
+}
+int pow(x,y)
+{
+    int originalx=x;
+    if(y==0)
+    {
+        return 1;
+    }
+    for(int i=1;i<y;i++)
+    {
+        x=x*originalx;
+    }
+    return x;
+}
