@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-int trigo(int a,int b);
+float trigo(int a,int b);
 int main()
 {
     int x,y;
     printf("Insert x,y :");
     scanf("%d,%d",&x,&y);
-    printf("The hypo of %d and %d is %d",x,y,trigo(x,y));
+    printf("The hypo of %d and %d is %.2f",x,y,trigo(x,y));
     return 0;
 }
-int trigo(int a,int b)
+float trigo(int a,int b)
 {
     return sqrt(a*a+b*b);
 }
