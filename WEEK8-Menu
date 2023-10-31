@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+void menu();
+unsigned long fact(int num);
+int cNr(int a, int b);
+int sum(int a, int b);
+int main()
+{
+    while(1)
+    {
+    menu();
+    int choice;
+    int num;
+    int n,r;
+    int x,y;
+    scanf("%d",&choice);
+     switch(choice)
+    {
+    case 1:
+        printf("Insert a number : ");
+        scanf("%d",&num);
+        printf("The factorial of %d is %ld\n",num,fact(num));
+        break;
+    case 2:
+        printf("Insert n,r : ");
+        scanf("%d,%d",&n,&r);
+        printf("%d choose %d is %d\n",n,r,cNr(n,r));
+        break;
+    case 3:
+        printf("Insert 2 numbers to add : ");
+        scanf("%d,%d",&x,&y);
+        printf("The summation of %d and %d is %d\n",x,y,sum(x,y));
+        break;
+    default:
+        printf("Bye Bye~~\n");
+        break;
+    }
+    if(choice==4)
+        {
+            break;
+        }
+    }
+
+    return 0;
+}
+void menu()
+{
+    printf("What do you want me to do?\n");
+    printf("1.Find factorial of a number\n");
+    printf("2.Find combinational number\n");
+    printf("3.Find summation of a number\n");
+    printf("4.Exit the program\n");
+    printf("Your choice?\n");
+
+
+}
+unsigned long fact(int num)
+{
+    unsigned long result=num;
+    for(int i=result;i>1;i--)
+    {
+        result=result*(i-1);
+    }
+    return result;
+}
+int cNr(int a, int b)
+{
+    if(a==b) return 1;
+    int result=fact(a)/(fact(b)*fact(a-b));
+    return result;
+}
+int sum(int a, int b)
+{
+    return a+b;
+}
