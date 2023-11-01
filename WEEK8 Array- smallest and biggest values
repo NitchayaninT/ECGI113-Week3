@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define SIZE 9
+
+int main()
+{
+     int array[SIZE];
+
+    for(int i=0;i<SIZE;i++)
+    {
+        printf("Enter data %d : ",i+1);
+        scanf("%d",&array[i]);
+    }
+    int smallest=array[0];
+    for(int i=1;i<SIZE;i++)
+    {
+        if(array[i]<smallest)
+        {
+            smallest=array[i];
+        }
+    }
+    int largest=array[0];
+    for(int i=1;i<SIZE;i++)
+    {
+        if(array[i]>largest)
+        {
+            largest=array[i];
+        }
+    }
+    printf("Smallest value : %d\n",smallest);
+    printf("largest value : %d",largest);
+    return 0;
+}
