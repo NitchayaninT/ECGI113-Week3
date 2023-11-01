@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define SIZE 9
+int smallest(int [],int);
+int largest(int [],int);
+int main()
+{
+     int array[SIZE];
+
+    for(int i=0;i<SIZE;i++)
+    {
+        printf("Enter data %d : ",i+1);
+        scanf("%d",&array[i]);
+    }
+
+    printf("Smallest value : %d\n",smallest(array,SIZE));
+    printf("largest value : %d",largest(array,SIZE));
+    return 0;
+}
+int smallest(int a[],int size)
+{
+    int smallest=a[0];
+    for(int i=1;i<SIZE;i++)
+    {
+        if(a[i]<smallest)
+        {
+            smallest=a[i];
+        }
+    }
+    return smallest;
+}
+int largest(int a[],int size)
+{
+    int largest=a[0];
+   for(int i=1;i<SIZE;i++)
+    {
+         if(a[i]>largest)
+        {
+            largest=a[i];
+        }
+    }
+    return largest;
+}
