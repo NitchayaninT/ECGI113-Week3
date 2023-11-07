@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define size 50
+int main()
+{
+    int mat1[size][size];
+    int mat2[size][size];
+    int newmat[size][size];
+    int row1,column1;
+    int row2,column2;
+    printf("Matrix A\n");
+    printf("Number of rows : ");
+    scanf("%d",&row1);
+    printf("Number of columns : ");
+    scanf("%d",&column1);
+    printf("Matrix B\n");
+    printf("Number of rows : ");
+    scanf("%d",&row2);
+    printf("Number of columns : ");
+    scanf("%d",&column2);
+   //insert values
+    for(int i=0;i<row1;i++)
+    {
+        for(int j=0;j<column1;j++)
+        {
+            printf("a(%d,%d) = ",i+1,j+1);
+            scanf("%d",&mat1[i][j]);
+        }
+    }
+    for(int i=0;i<row2;i++)
+    {
+        for(int j=0;j<column2;j++)
+        {
+            printf("b(%d,%d) = ",i+1,j+1);
+            scanf("%d",&mat2[i][j]);
+        }
+    }
+    int answer=0;
+    for(int i=0;i<row1;i++)
+    {
+        if(column1!=row2)
+        {
+            printf("Undefined\n");
+            break;
+        }
+
+        for(int j=0;j<column2;j++)
+        {
+
+            for(int k=0;k<column1;k++)
+            {
+                answer+=(mat1[i][k]*mat2[k][j]);
+                newmat[i][j]=answer;
+            }
+            answer=0;
+        }
+    }
+    for(int i=0;i<row1;i++)
+    {
+        for(int j=0;j<column2;j++)
+        {
+            printf("%d ",newmat[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
