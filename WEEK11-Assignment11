@@ -15,8 +15,9 @@ void showstudent(struct student st[]);
 void getdateofbirth(struct student st[]);
 int main()
 {
+    int n;
     struct student st[SIZE];
-    getStudent(st);
+    n=getStudent(st);
     convertgrade(st);
     getdateofbirth(st);
     showstudent(st);
@@ -84,15 +85,19 @@ int main()
    printf("-The youngest student is %s who was born on %d/%d/%d\n",st[youngstudent].name,st[youngstudent].day,st[youngstudent].month,st[youngstudent].year);
     return 0;
 }
-void getStudent(struct student st[])
+int getStudent(struct student st[])
 {
-    for(int i=0;i<SIZE;i++)
+int n;
+   printf("How many students?(max=%d):",SIZE);
+   scanf("%d",&n);
+    for(int i=0;i<n;i++)
     {
         printf("Insert name for student %d : ",i+1);
         scanf("%s",st[i].name);
          printf("Insert score for %s : ",st[i].name,i+1);
         scanf("%lf",&st[i].score);
     }
+return n;
 }
 void convertgrade(struct student st[])
 {
