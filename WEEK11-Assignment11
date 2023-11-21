@@ -1,0 +1,138 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define SIZE 5
+struct student{
+char name[20];
+double score;
+char grade;
+int day;
+int month;
+int year;
+};
+void getStudent(struct student st[]);
+void convertgrade(struct student st[]);
+void showstudent(struct student st[]);
+void getdateofbirth(struct student st[]);
+int main()
+{
+    struct student st[SIZE];
+    getStudent(st);
+    convertgrade(st);
+    getdateofbirth(st);
+    showstudent(st);
+
+   double highestscore=st[0].score;
+   int higheststudent;
+   for(int i=1;i<SIZE;i++)
+   {
+       if(st[i].score>highestscore)
+       {
+           highestscore=st[i].score;
+           higheststudent=i;
+       }
+   }
+   printf("--Highest score student info--\n");
+   printf("Name:%s\nScore:%lf\nGrade:%c\n",st[higheststudent].name,st[higheststudent].score,st[higheststudent].grade);
+   int youngstudent;
+   int youngestyear=st[0].year;
+   int youngestmonth=st[0].month;
+   int youngestday=st[0].day;
+   for(int i=1;i<SIZE;i++)
+   {
+       if(st[i].year>youngestyear)
+       {
+           youngestyear=st[i].year;
+           youngstudent=i;
+           continue;
+       }
+       else if(st[i].year<youngestyear)
+       {
+           continue;
+       }
+       else if(st[i].year==youngestyear)
+       {
+           if(st[i].month>youngestmonth)
+           {
+               youngestmonth=st[i].month;
+               youngstudent=i;
+               continue;
+           }
+           else if(st[i].month<youngestmonth)
+           {
+               continue;
+           }
+           else if(st[i].month==youngestmonth)
+           {
+               if(st[i].day>youngestday)
+               {
+                   youngstudent=i;
+                   continue;
+               }
+               else if(st[i].day<youngestday)
+               {
+                   continue;
+               }
+               else if(st[i].day==youngestday)
+               {
+                   continue;
+               }
+           }
+
+       }
+
+   }
+   printf("-The youngest student is %s who was born on %d/%d/%d\n",st[youngstudent].name,st[youngstudent].day,st[youngstudent].month,st[youngstudent].year);
+    return 0;
+}
+void getStudent(struct student st[])
+{
+    for(int i=0;i<SIZE;i++)
+    {
+        printf("Insert name for student %d : ",i+1);
+        scanf("%s",st[i].name);
+         printf("Insert score for %s : ",st[i].name,i+1);
+        scanf("%lf",&st[i].score);
+    }
+}
+void convertgrade(struct student st[])
+{
+    for(int i=0;i<SIZE;i++)
+    {
+        if(st[i].score>=80)
+        {
+            st[i].grade='A';
+
+        }
+        else if(st[i].score>=70&&st[i].score<=79)
+        {
+            st[i].grade='B';
+
+        }
+        else if(st[i].score>=60&&st[i].score<=69)
+        {
+            st[i].grade='C';
+
+        }
+        else if(st[i].score<60)
+        {
+            st[i].grade='F';
+
+        }
+    }
+}
+void showstudent(struct student st[])
+{
+    for(int i=0;i<SIZE;i++)
+   {
+       printf("%d.%s \nScore:%lf\nGrade:%c\n",i+1,st[i].name,st[i].score,st[i].grade);
+   }
+}
+void getdateofbirth(struct student st[])
+{
+    for(int i=0;i<SIZE;i++)
+    {
+    printf("Insert date of birth for %s (dd/mm/yyyy) : ",st[i].name);
+    scanf("%d/%d/%d",&st[i].day,&st[i].month,&st[i].year);
+    }
+
+}
